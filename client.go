@@ -53,6 +53,9 @@ const DefaultPort = 6640
 func ConnectUsingProtocol(protocol string, target string) (*OvsdbClient, error) {
 	conn, err := net.Dial(protocol, target)
 
+fmt.Println("*****cli conn******")
+fmt.Println(conn)
+fmt.Println("*****cli conn******")
 	if err != nil {
 		return nil, err
 	}
@@ -86,6 +89,8 @@ func Connect(ipAddr string, port int) (*OvsdbClient, error) {
 		ipAddr = DefaultAddress
 	}
 
+fmt.Println("-----enter------")
+
 	if port <= 0 {
 		port = DefaultPort
 	}
@@ -106,6 +111,7 @@ func ConnectWithUnixSocket(socketFile string) (*OvsdbClient, error) {
 
 // Register registers the supplied NotificationHandler to recieve OVSDB Notifications
 func (ovs *OvsdbClient) Register(handler NotificationHandler) {
+	fmt.Println("*********5**************")
 	ovs.handlersMutex.Lock()
 	defer ovs.handlersMutex.Unlock()
 	ovs.handlers = append(ovs.handlers, handler)
@@ -230,6 +236,7 @@ func (ovs OvsdbClient) ListDbs() ([]string, error) {
 // Transact performs the provided Operation's on the database
 // RFC 7047 : transact
 func (ovs OvsdbClient) Transact(database string, operation ...Operation) ([]OperationResult, error) {
+	fmt.Println("***********6 Transact************")
 	var reply []OperationResult
 	db, ok := ovs.Schema[database]
 	if !ok {
@@ -326,3 +333,4 @@ func (ovs OvsdbClient) Disconnect() {
 	ovs.rpcClient.Close()
 	clearConnection(ovs.rpcClient)
 }
+
