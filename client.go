@@ -96,6 +96,10 @@ fmt.Println("-----enter------")
 	}
 
 	target := fmt.Sprintf("%s:%d", ipAddr, port)
+        fmt.Println("target")
+        fmt.Println(target)
+        fmt.Println("target")
+
 	return ConnectUsingProtocol("tcp", target)
 }
 
