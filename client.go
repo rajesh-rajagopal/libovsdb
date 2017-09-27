@@ -37,7 +37,7 @@ func newOvsdbClient(c *rpc2.Client) *OvsdbClient {
 	connections[c] = ovs
 	fmt.Println("---newOvsdbClient----")
 	fmt.Println(ovs)
-	fmt.Println(connection[c])
+	fmt.Println(connections[c])
 	fmt.Println("---newOvsdbClient----")
 	return ovs
 }
