@@ -19,10 +19,16 @@ func NewTransactArgs(database string, operations ...Operation) []interface{} {
 		opsSlice[i] = d
 	}
 
+	fmt.Println("----- rpc.go -------------")
+	fmt.Printf("%#v",dbSlice)
+	fmt.Println("----- rpc.go -------------")
+
+	fmt.Println("----- rpc.go -------------")
+	fmt.Printf("%#v",opsSlice)
+	fmt.Println("----- rpc.go -------------")
+
 	ops := append(dbSlice, opsSlice...)
-	fmt.Println("----- rpc.go -------------")
-	fmt.Printf("%#v",ops)
-	fmt.Println("----- rpc.go -------------")
+
 	return ops
 }
 
