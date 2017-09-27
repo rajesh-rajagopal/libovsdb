@@ -332,9 +332,9 @@ func getTableUpdatesFromRawUnmarshal(raw map[string]map[string]RowUpdate) TableU
 		tableUpdate := TableUpdate{update}
 		tableUpdates.Updates[table] = tableUpdate
 	}
-	fmt.Println("----update table -----")
-	fmt.Printf("%#v",tableUpdates)
-	fmt.Println("----update table -----")
+	// fmt.Println("----update table -----")
+	// fmt.Printf("%#v",tableUpdates)
+	// fmt.Println("----update table -----")
 	return tableUpdates
 }
 
