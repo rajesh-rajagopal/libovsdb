@@ -305,6 +305,11 @@ func (ovs OvsdbClient) Monitor(database string, jsonContext interface{}, request
 
 	args := NewMonitorArgs(database, jsonContext, requests)
 
+	fmt.Println("**************Monitor******************")
+	fmt.Println(database)
+	fmt.Printf("%#v", jsonContext)
+	fmt.Println(requests)
+	fmt.Println("********End***********")
 	// This totally sucks. Refer to golang JSON issue #6213
 	var response map[string]map[string]RowUpdate
 	err := ovs.rpcClient.Call("monitor", args, &response)
@@ -312,15 +317,11 @@ func (ovs OvsdbClient) Monitor(database string, jsonContext interface{}, request
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("-----Monitor------")
-	fmt.Println(args)
-	fmt.Println("-----Monitor------")
-	fmt.Println("-----Monitor------")
-	fmt.Printf("%#v",response)
-	fmt.Println("-----Monitor------")
-	fmt.Println("-----Monitor------")
-	fmt.Printf("%#v",reply)
-	fmt.Println("-----Monitor------")
+	// fmt.Println("-----Monitor------")
+	// fmt.Println(args)
+	// fmt.Printf("%#v",response)
+	// fmt.Printf("%#v",reply)
+	// fmt.Println("-----Monitor------")
 	return &reply, err
 }
 
