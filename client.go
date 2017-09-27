@@ -243,6 +243,9 @@ func (ovs OvsdbClient) ListDbs() ([]string, error) {
 	if err != nil {
 		log.Fatal("ListDbs failure", err)
 	}
+	fmt.Println("******List DB*****")
+	fmt.Printf("%#v",dbs)
+	fmt.Println("******List DB*****")
 	return dbs, err
 }
 
@@ -309,6 +312,11 @@ func (ovs OvsdbClient) Monitor(database string, jsonContext interface{}, request
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("-----Monitor------")
+	fmt.Printf(args)
+	fmt.Printf("%#v",response)
+	fmt.Printf("%#v",reply)
+	fmt.Println("-----Monitor------")
 	return &reply, err
 }
 
@@ -319,6 +327,9 @@ func getTableUpdatesFromRawUnmarshal(raw map[string]map[string]RowUpdate) TableU
 		tableUpdate := TableUpdate{update}
 		tableUpdates.Updates[table] = tableUpdate
 	}
+	fmt.Println("----update table -----")
+	fmt.Printf("%#v",tableUpdates)
+	fmt.Println("----update table -----")
 	return tableUpdates
 }
 
