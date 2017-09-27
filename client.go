@@ -35,6 +35,10 @@ func newOvsdbClient(c *rpc2.Client) *OvsdbClient {
 		connections = make(map[*rpc2.Client]*OvsdbClient)
 	}
 	connections[c] = ovs
+	fmt.Println("---newOvsdbClient----")
+	fmt.Println(ovs)
+	fmt.Println(connection[c])
+	fmt.Println("---newOvsdbClient----")
 	return ovs
 }
 
@@ -54,8 +58,6 @@ func ConnectUsingProtocol(protocol string, target string) (*OvsdbClient, error) 
 	conn, err := net.Dial(protocol, target)
 
 fmt.Println("*****cli conn******")
-fmt.Println(conn)
-fmt.Println("*****cli conn******")
 	if err != nil {
 		return nil, err
 	}
@@ -70,6 +72,11 @@ fmt.Println("*****cli conn******")
 
 	// Process Async Notifications
 	dbs, err := ovs.ListDbs()
+
+	fmt.Println("---------connect db---------------")
+	fmt.Println(dbs)
+	fmt.Println("---------connect db---------------")
+
 	if err == nil {
 		for _, db := range dbs {
 			schema, err := ovs.GetSchema(db)
