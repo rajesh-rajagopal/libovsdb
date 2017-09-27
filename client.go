@@ -70,9 +70,6 @@ fmt.Println("*****cli conn******")
 
 	ovs := newOvsdbClient(c)
 
-	fmt.Println("connection")
-	fmt.Printf("%#v",ovs)
-	fmt.Println("connection")
 	// Process Async Notifications
 	dbs, err := ovs.ListDbs()
 
@@ -85,6 +82,9 @@ fmt.Println("*****cli conn******")
 		fmt.Println("---no error---")
 		for _, db := range dbs {
 			schema, err := ovs.GetSchema(db)
+			fmt.Println("***********")
+			fmt.Println(schema)
+			fmt.Println("***********")
 			if err == nil {
 				ovs.Schema[db] = *schema
 			} else {
