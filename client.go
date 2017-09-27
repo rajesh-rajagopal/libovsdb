@@ -82,9 +82,9 @@ fmt.Println("*****cli conn******")
 		fmt.Println("---no error---")
 		for _, db := range dbs {
 			schema, err := ovs.GetSchema(db)
-			fmt.Println("***********")
-			fmt.Println(schema)
-			fmt.Println("***********")
+			// fmt.Println("***********")
+			// fmt.Println(schema)
+			// fmt.Println("***********")
 			if err == nil {
 				ovs.Schema[db] = *schema
 			} else {
