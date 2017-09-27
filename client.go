@@ -32,7 +32,7 @@ func newOvsdbClient(c *rpc2.Client) *OvsdbClient {
 	connectionsMutex.Lock()
 	defer connectionsMutex.Unlock()
 	if connections == nil {
-		connections = make(map[*rpc2.Client]*OvsdbClient)
+		connections = make(map[*rpc2.Client]*Ovs	dbClient)
 	}
 	connections[c] = ovs
 	fmt.Println("---newOvsdbClient----")
