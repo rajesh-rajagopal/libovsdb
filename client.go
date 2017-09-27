@@ -36,7 +36,7 @@ func newOvsdbClient(c *rpc2.Client) *OvsdbClient {
 	}
 	connections[c] = ovs
 	fmt.Println("---newOvsdbClient----")
-	fmt.Println(ovs)
+	fmt.Printf("%#v",ovs)
 	fmt.Println("---newOvsdbClient----")
 	return ovs
 }
@@ -71,7 +71,7 @@ fmt.Println("*****cli conn******")
 	ovs := newOvsdbClient(c)
 
 	fmt.Println("connection")
-	fmt.Println(ovs)
+	fmt.Printf("%#v",ovs)
 	fmt.Println("connection")
 	// Process Async Notifications
 	dbs, err := ovs.ListDbs()
