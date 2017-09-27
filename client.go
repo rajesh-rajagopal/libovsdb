@@ -314,7 +314,11 @@ func (ovs OvsdbClient) Monitor(database string, jsonContext interface{}, request
 	}
 	fmt.Println("-----Monitor------")
 	fmt.Println(args)
+	fmt.Println("-----Monitor------")
+	fmt.Println("-----Monitor------")
 	fmt.Printf("%#v",response)
+	fmt.Println("-----Monitor------")
+	fmt.Println("-----Monitor------")
 	fmt.Printf("%#v",reply)
 	fmt.Println("-----Monitor------")
 	return &reply, err
