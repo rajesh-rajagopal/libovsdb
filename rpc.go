@@ -20,7 +20,7 @@ func NewTransactArgs(database string, operations ...Operation) []interface{} {
 	}
 
 	fmt.Println("----- rpc.go -------------")
-	fmt.Printf("%#v",dbSlice)
+	fmt.Printf(dbSlice)
 	fmt.Println("----- rpc.go -------------")
 
 	fmt.Println("----- rpc.go -------------")

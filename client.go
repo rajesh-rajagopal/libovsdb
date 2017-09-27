@@ -268,6 +268,8 @@ func (ovs OvsdbClient) Transact(database string, operation ...Operation) ([]Oper
 	args := NewTransactArgs(database, operation...)
 	fmt.Println("*****************sending arguments**********************")
 	fmt.Println("%#v",args)
+	fmt.Println("*********reply")
+	fmt.Println(&reply)
 	fmt.Println("*****************sending arguments**********************")
 	err := ovs.rpcClient.Call("transact", args, &reply)
 	if err != nil {
