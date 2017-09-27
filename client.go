@@ -82,9 +82,6 @@ fmt.Println("*****cli conn******")
 		fmt.Println("---no error---")
 		for _, db := range dbs {
 			schema, err := ovs.GetSchema(db)
-			// fmt.Println("***********")
-			// fmt.Println(schema)
-			// fmt.Println("***********")
 			if err == nil {
 				ovs.Schema[db] = *schema
 			} else {
@@ -258,9 +255,9 @@ func (ovs OvsdbClient) Transact(database string, operation ...Operation) ([]Oper
 	if !ok {
 		return nil, errors.New("invalid Database Schema")
 	}
-	fmt.Println("---Transact----")
-	fmt.Printf("%#v",db)
-	fmt.Println("---Transact----")
+	// fmt.Println("---Transact----")
+	// fmt.Printf("%#v",db)
+	// fmt.Println("---Transact----")
 	if ok := db.validateOperations(operation...); !ok {
 		return nil, errors.New("Validation failed for the operation")
 	}
