@@ -18,16 +18,7 @@ func NewTransactArgs(database string, operations ...Operation) []interface{} {
 	for i, d := range operations {
 		opsSlice[i] = d
 	}
-
-	fmt.Println("----- rpc.go -------------")
-	fmt.Printf(dbSlice)
-	fmt.Println("----- rpc.go -------------")
-
-	fmt.Println("----- rpc.go -------------")
-	fmt.Printf("%#v",opsSlice)
-	fmt.Println("----- rpc.go -------------")
-
-	ops := append(dbSlice, opsSlice...)
+ops := append(dbSlice, opsSlice...)
 
 	return ops
 }
