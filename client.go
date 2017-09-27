@@ -58,6 +58,7 @@ func ConnectUsingProtocol(protocol string, target string) (*OvsdbClient, error) 
 
 fmt.Println("*****cli conn******")
 	if err != nil {
+		fmt.Println("---error----")
 		return nil, err
 	}
 
@@ -76,10 +77,12 @@ fmt.Println("*****cli conn******")
 	dbs, err := ovs.ListDbs()
 
 	fmt.Println("---------connect db---------------")
-	fmt.Println(dbs)
+	fmt.Printf("%#v",dbs)
+	fmt.Println(err)
 	fmt.Println("---------connect db---------------")
 
 	if err == nil {
+		fmt.Println("---no error---")
 		for _, db := range dbs {
 			schema, err := ovs.GetSchema(db)
 			if err == nil {
@@ -255,7 +258,9 @@ func (ovs OvsdbClient) Transact(database string, operation ...Operation) ([]Oper
 	if !ok {
 		return nil, errors.New("invalid Database Schema")
 	}
-
+	fmt.Println("---Transact----")
+	fmt.Printf("%#v",db)
+	fmt.Println("---Transact----")
 	if ok := db.validateOperations(operation...); !ok {
 		return nil, errors.New("Validation failed for the operation")
 	}
