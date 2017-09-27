@@ -70,7 +70,7 @@ fmt.Println("*****cli conn******")
 	ovs := newOvsdbClient(c)
 
 	fmt.Println("connection")
-	fmt.Println(string(ovs))
+	fmt.Println(ovs)
 	fmt.Println("connection")
 	// Process Async Notifications
 	dbs, err := ovs.ListDbs()
