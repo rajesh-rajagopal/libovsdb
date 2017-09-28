@@ -93,18 +93,18 @@ fmt.Println("*****cli conn******")
 }
 
 // Connect creates an OVSDB connection and returns and OvsdbClient
-func Connect(ipAddr string ) (*OvsdbClient, error) {
+func Connect(ipAddr string, port int) (*OvsdbClient, error) {
 	if ipAddr == "" {
 		ipAddr = DefaultAddress
 	}
 
 fmt.Println("-----enter------")
 
-	// if port <= 0 {
-	// 	port = DefaultPort
-	// }
+	if port <= 0 {
+		port = DefaultPort
+	}
 
-	target := fmt.Sprintf("%s", ipAddr)
+	target := fmt.Sprintf("%s:%d", ipAddr, port)
         fmt.Println("target")
         fmt.Println(target)
         fmt.Println("target")
